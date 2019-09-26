@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
+  <style>
+    html { background: var(--in-content-box-background); cursor: default; }
+    body { padding: 0 0 20px; }
+    ul { display: block; border: 1px solid var(--in-content-box-border-color); margin: 0; padding: 0; list-style: none; padding-top: 30px; height: 300px; overflow-y: auto; position: relative; }
+    li { display: flex; height: 40px; line-height: 30px; width: 100%; }
+    .theader { position: absolute; top: 0; height: 30px; color: #808080; background: var(--in-content-box-background-hover); }
+    .theader span { position: relative; line-height: 20px; }
+    .theader span:not(:first-child)::before { content: " "; height: 10px; border-left: 1px solid var(--in-content-box-border-color); position: absolute; left: 0; top: 10px; }
+    span { line-height: 30px; padding: 5px 10px; }
+    span:nth-child(1) { flex: 0 0 calc(30% - 20px); }
+    span:nth-child(2) { flex: 0 0 calc(30% - 20px); }
+    span:nth-child(3) { flex: 0 0 calc(40% - 20px); }
+    li:nth-child(2n+1) { background: var(--in-content-box-background-odd); }
+    li:hover { background: var(--blue-40-a10); }
+    li.cur { background: var(--blue-50-a30); }
+    i { font-style: normal; }
+    svg { width: 16px; vertical-align: middle; margin-right: 5px; }
+    #button-line { text-align: right; }
+    li.empty-list { background: transparent; }
+    li.empty-list div { flex: 1 1 auto; padding: 5px 20px; }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+    <li class="theader">
+      <span data-i18n="optionsTableHost"></span>
+      <span data-i18n="optionsTableContainer"></span>
+      <span data-i18n="optionsTableUsername"></span>
+    </li>
+  </ul>
+  <div id="button-line"><button id="remove" data-i18n="optionsRemoveButton" disabled></button></div>
+  <script src="icons.js"></script>
+  <script src="options.js"></script>
+</body>
+
+</html>

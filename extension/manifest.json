@@ -1,0 +1,58 @@
+{
+
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0.0",
+  "default_locale": "en",
+
+  "icons": {
+    "48": "icon.svg"
+  },
+
+  "permissions": [
+    "storage",
+    "contextualIdentities",
+    "cookies",
+    "tabs",
+
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+
+  "page_action": {
+    "browser_style": true,
+    "default_popup": "pageaction.html",
+    "default_title": "__MSG_extensionButtonTitle__",
+    "default_icon": "icon-blue.svg"
+  },
+
+  "options_ui": {
+    "browser_style": false,
+    "page": "options.html"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "{bb1b34f2-0bfd-4bf5-a2b0-dd9d0a2faf01}",
+      "strict_min_version": "60.0"
+    }
+  }
+
+}

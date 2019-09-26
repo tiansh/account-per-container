@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Account Per Container",
+    "description": "Name of the extension; Should be kept as is when localizing."
+  },
+  "extensionDescription": {
+    "message": "Auto-fill username when you open websites in certain container.",
+    "description": "Description of the extension."
+  },
+  "extensionButtonTitle": {
+    "message": "Add container username rule",
+    "description": "Text for page-action button"
+  },
+  "inputUsernameNotice": {
+    "message": "Input username in webpage first before adding new rule.",
+    "description": "Notify user should input username in webpage first before adding new rule."
+  },
+  "addRuleNotice": {
+    "message": "Would you like to use {username} for {host} in {container} next time?",
+    "description": "Dialog when user try to add rules; Words in {} are placeholders, and they should not be localized."
+  },
+  "addRuleConfirm": {
+    "message": "Add Rule",
+    "description": "Button in dialog for confirm"
+  },
+  "updateRuleConfirm": {
+    "message": "Update Rule",
+    "description": "Button in dialog for confirm, old rule for different username already exist"
+  },
+  "addedRuleNotice": {
+    "message": "Account per container rule added. Auto-fill {username} for {host} in {container} next time.",
+    "description": "Dialog to confirm rule added"
+  },
+  "optionsTableHost": {
+    "message": "Website",
+    "description": "Title of host column in options page"
+  },
+  "optionsTableContainer": {
+    "message": "Container",
+    "description": "Title of container column in options page"
+  },
+  "optionsTableUsername": {
+    "message": "User Name",
+    "description": "Title of username column in options page"
+  },
+  "optionsRemoveButton": {
+    "message": "Remove",
+    "description": "Button for remove a rule"
+  },
+  "emptyRuleList": {
+    "message": "To create rules, visit website login page in a container and type in your user name as normal. You will find an icon in address bar to add it here.",
+    "description": "Show tips to user when no rule added in options page."
+  }
+}

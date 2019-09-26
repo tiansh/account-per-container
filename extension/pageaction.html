@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
+  <style>
+svg { vertical-align: middle; }
+html { margin: 0; padding: 0; overflow: hidden; }
+body { width: 280px; margin: 0; padding: 10px 20px; background: var(--in-content-page-background); color: var(--in-content-page-color); font: message-box; }
+#confirm { width: 100vw; margin: 10px -20px -10px; padding: 12px; text-align: center; background: #0996f8; box-shadow: 0 1px 0 #0670cc inset; color: #fff !important; border-radius: 0; }
+#confirm:hover { background: #0670cc; box-shadow: 0 1px 0 #005bab inset; }
+  </style>
+</head>
+
+<body>
+  <div id="message">
+    <span id="text"></span>
+    <button id="confirm"></button>
+  </div>
+  <script src="icons.js"></script>
+  <script src="pageaction.js"></script>
+</body>
+
+</html>

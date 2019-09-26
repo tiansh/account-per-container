@@ -1,0 +1,41 @@
+{
+  "extensionName": {
+    "message": "Account Per Container"
+  },
+  "extensionDescription": {
+    "message": "使用容器打开网站时，自动选择登录用的用户名"
+  },
+  "extensionButtonTitle": {
+    "message": "添加容器用户规则"
+  },
+  "inputUsernameNotice": {
+    "message": "在网页中输入用户名后可以在这里添加规则"
+  },
+  "addRuleNotice": {
+    "message": "您要在每次使用容器 {container} 访问 {host} 时自动填写用户名 {username} 吗？"
+  },
+  "addRuleConfirm": {
+    "message": "添加规则"
+  },
+  "updateRuleConfirm": {
+    "message": "更新规则"
+  },
+  "addedRuleNotice": {
+    "message": "规则已添加。下次使用容器 {container} 访问 {host} 时会自动填写用户名 {username}。"
+  },
+  "optionsTableHost": {
+    "message": "站点"
+  },
+  "optionsTableContainer": {
+    "message": "容器"
+  },
+  "optionsTableUsername": {
+    "message": "用户名"
+  },
+  "optionsRemoveButton": {
+    "message": "删除"
+  },
+  "emptyRuleList": {
+    "message": "在容器内访问网站的登录页，输入用户名后可在地址栏找到添加规则的按钮。"
+  }
+}
