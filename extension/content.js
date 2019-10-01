@@ -1,4 +1,11 @@
-; (function () {
+; (async function () {
+
+  const isMyselfContained = function () {
+    return browser.runtime.sendMessage({ method: 'isMyselfContained' });
+  };
+
+  const isContained = await isMyselfContained();
+  if (!isContained) return;
 
   const getPreferedUsername = function () {
     return browser.runtime.sendMessage({ method: 'getPreferedUsername' });
@@ -8,8 +15,26 @@
     browser.runtime.sendMessage({ method: 'onUsernameChange', params: [username] });
   };
 
+  /**
+   * We update password field so built-in password manager will fill password for it.
+   * @param {HTMLInputElement} input
+   * @param {string} value
+   */
+  const setInputValue = function (input, value) {
+    input.value = value;
+    if (!input.form) return;
+    Array.from(input.form.elements).forEach(element => {
+      if (element.type !== 'password') return;
+      const placeholder = document.createElement('x-temp-placeholder');
+      const parent = element.parentNode;
+      parent.replaceChild(placeholder, element);
+      parent.replaceChild(element, placeholder);
+    });
+  };
+
   let oldValue = null;
   /**
+   * Notice background when user inputed
    * @param {Event} event
    */
   const loginInput = function (event) {
@@ -20,23 +45,30 @@
     onUsernameChange(input.value);
   };
 
-  /** @param {HTMLInputElement} input */
+  /**
+   * Once login input detected, we fill it if we can, and also let background know
+   * @param {HTMLInputElement} input
+   */
   const onLoginDetected = async function (input) {
     input.addEventListener('input', loginInput);
     onUsernameChange(input.value);
     if (!input.value) {
       const username = await getPreferedUsername();
-      if (username) input.value = username;
+      if (username) setInputValue(input, username);
       onUsernameChange(input.value);
     }
   };
 
-  /** @param {HTMLInputElement} oldInput */
+  /**
+   * In case login input is removed from document
+   * @param {HTMLInputElement} oldInput
+   */
   const onLoginLost = function (oldInput) {
     oldInput.removeEventListener('input', loginInput);
   };
 
   /**
+   * Why a website may chinging input field for login? I don't know
    * @param {HTMLInputElement} input
    * @param {HTMLInputElement} oldInput
    */
@@ -46,6 +78,11 @@
   };
 
   let lastLogin = null;
+  /**
+   * Detecting login by input[type="password"]
+   * If a form contains 1~3 password inputs
+   * we consider the last text input before first password input username
+   */
   const detectLogin = function () {
     const forms = document.forms;
     const logins = Array.from(forms).map(form => {
@@ -53,13 +90,17 @@
       let lastText = null;
       let lastTextLike = null;
       let lastPassword = null;
+      let passwordCount = null;
       let username = null;
       for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
         if (element.type === 'password') {
-          if (lastPassword) return null;
-          lastPassword = element;
-          username = lastText || lastTextLike;
+          passwordCount++;
+          if (passwordCount > 3) return null;
+          if (!lastPassword) {
+            lastPassword = element;
+            username = lastText || lastTextLike;
+          }
         } else if (element.type === 'text') {
           lastText = element;
         } else if (element.type === 'email') {
@@ -80,7 +121,6 @@
   observer.observe(document.documentElement, {
     subtree: true,
     attributes: true,
-    attributeFilter: ['type'],
   });
   detectLogin();
 

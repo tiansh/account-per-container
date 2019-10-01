@@ -43,6 +43,11 @@
     }
   };
 
+  const isMyselfContained = async function (sender) {
+    return isContainedTab(sender.tab);
+  };
+  handlers.isMyselfContained = isMyselfContained;
+
   const getTabInfo = async function (tab) {
     const isContained = await isContainedTab(tab);
     if (!isContained) return null;

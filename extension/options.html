@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
   <style>
     html { background: var(--in-content-box-background); cursor: default; }
-    body { padding: 0 0 20px; }
+    body { padding: 20px 0; }
     ul { display: block; border: 1px solid var(--in-content-box-border-color); margin: 0; padding: 0; list-style: none; padding-top: 30px; height: 300px; overflow-y: auto; position: relative; }
     li { display: flex; height: 40px; line-height: 30px; width: 100%; }
-    .theader { position: absolute; top: 0; height: 30px; color: #808080; background: var(--in-content-box-background-hover); }
+    .theader { position: absolute; top: 0; height: 30px; color: #808080; }
     .theader span { position: relative; line-height: 20px; }
     .theader span:not(:first-child)::before { content: " "; height: 10px; border-left: 1px solid var(--in-content-box-border-color); position: absolute; left: 0; top: 10px; }
     span { line-height: 30px; padding: 5px 10px; }
@@ -19,6 +19,7 @@
     li:nth-child(2n+1) { background: var(--in-content-box-background-odd); }
     li:hover { background: var(--blue-40-a10); }
     li.cur { background: var(--blue-50-a30); }
+    li.theader { background: var(--in-content-box-background-hover); }
     i { font-style: normal; }
     svg { width: 16px; vertical-align: middle; margin-right: 5px; }
     #button-line { text-align: right; }
