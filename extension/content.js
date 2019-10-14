@@ -109,7 +109,7 @@
       }
       return username;
     });
-    const login = logins.find(login => login);
+    const login = logins.find(login => login) || null;
     if (login !== lastLogin) {
       if (!lastLogin) onLoginDetected(login);
       else if (!login) onLoginLost(lastLogin);
