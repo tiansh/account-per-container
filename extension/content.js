@@ -105,6 +105,8 @@
           lastText = element;
         } else if (element.type === 'email') {
           lastTextLike = element;
+        } else if (element.type === 'tel') {
+          lastTextLike = element;
         }
       }
       return username;
