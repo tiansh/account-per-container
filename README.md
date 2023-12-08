@@ -9,3 +9,5 @@ To add rules:
 3. Click the icon in address bar and follow its instructions
 
 You may view and remove rules in extension option.
+
+Available for Firefox here: https://addons.mozilla.org/firefox/addon/account-per-container/
